@@ -1,6 +1,6 @@
 package com.praj.omss.entity;
 
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -23,6 +23,12 @@ public class Product {
 	private int quantity;
 	@Column(name="amount")
 	private double amount;
+	public Product(int productId2, String productName2, String category2, int quantity2, Long amount2) {
+	
+	}
+	public Product() {
+		super();
+	}
 	public int getProductId() {
 		return productId;
 	}

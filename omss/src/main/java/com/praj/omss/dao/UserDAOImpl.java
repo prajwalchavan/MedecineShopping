@@ -15,12 +15,11 @@ public class UserDAOImpl implements UserDAO {
 	}
 
 	@Override
-	public User register(User user) {
-		// TODO Auto-generated method stub
+	public boolean register(User user) {
 		manager.getTransaction().begin();
 		manager.persist(user);
 		manager.getTransaction().commit();
-		return user;
+		return true;
 	}
 
 	@Override
@@ -51,7 +50,6 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public User logout(User user) {
-		// TODO Auto-generated method stub
 		 System.exit(0);
 		 return null;
 	}

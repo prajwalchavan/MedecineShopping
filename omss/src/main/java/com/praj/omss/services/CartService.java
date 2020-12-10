@@ -8,4 +8,9 @@ public interface CartService {
 
 	Cart addProductToCart(User user, Product product, int quantity);
 
+	static char[] addProduct(int productId) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

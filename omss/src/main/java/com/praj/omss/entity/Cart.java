@@ -1,8 +1,6 @@
 package com.praj.omss.entity;
 
-import java.util.Map;
-
-import javax.persistence.Column;
+import javax.persistence.*;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +18,7 @@ public class Cart {
 	@Column(name="userid")
 	private String userid;
     @Column(name="cart_info")
-    private Map<Product, Integer> cart;
+	private String product;
 	public int getCartId() {
 		return cartId;
 	}
@@ -33,11 +31,20 @@ public class Cart {
 	public void setUser(String user) {
 		this.userid = user;
 	}
-	public Map<Product, Integer> getCart() {
-		return cart;
+	public String getUserid() {
+		return userid;
 	}
-	public void setCart(Map<Product, Integer> cart) {
-		this.cart = cart;
+	public void setUserid(String userid) {
+		this.userid = userid;
 	}
+	public String getProduct() {
+		return product;
+	}
+	public void setProduct(String product) {
+		this.product = product;
+	}
+	
+	
+	
 
 }

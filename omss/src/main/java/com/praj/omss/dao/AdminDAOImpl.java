@@ -20,6 +20,7 @@ public class AdminDAOImpl implements AdminDAO {
 	@Override
 	public Product addProduct(Product product) {
 		
+		logger.info("Adding product");
 		
 		manager.getTransaction().begin();
 		manager.persist(product);
