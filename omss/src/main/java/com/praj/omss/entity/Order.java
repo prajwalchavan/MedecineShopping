@@ -13,6 +13,7 @@ import javax.persistence.Table;
 @Table(name="Order_Details")
 
 public class Order {
+	
 	@Id
 	@GeneratedValue(strategy =GenerationType.AUTO)
 	@Column(name="order_id")
@@ -23,6 +24,15 @@ public class Order {
     private String orderDate;
     @Column(name="order_Status")
 	private String orderStatus;
+    
+
+	public Order(int orderId, String userid, String orderDate, String orderStatus) {
+		super();
+		this.orderId = orderId;
+		this.userid = userid;
+		this.orderDate = orderDate;
+		this.orderStatus = orderStatus;
+	}
 	public int getOrderId() {
 		return orderId;
 	}
@@ -46,6 +56,15 @@ public class Order {
 	}
 	public void setOrderStatus(String orderStatus) {
 		this.orderStatus = orderStatus;
+	}
+	@Override
+	public String toString() {
+		return "Order [orderId=" + orderId + ", userid=" + userid + ", orderDate=" + orderDate + ", orderStatus="
+				+ orderStatus + "]";
+	}
+	public Order() {
+		super();
+		
 	}
 
 }

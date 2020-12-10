@@ -23,8 +23,14 @@ public class Product {
 	private int quantity;
 	@Column(name="amount")
 	private double amount;
-	public Product(int productId2, String productName2, String category2, int quantity2, Long amount2) {
 	
+	public Product(int productId, String productName, String category, int quantity, double amount) {
+		super();
+		this.productId = productId;
+		this.productName = productName;
+		this.category = category;
+		this.quantity = quantity;
+		this.amount = amount;
 	}
 	public Product() {
 		super();
@@ -58,6 +64,11 @@ public class Product {
 	}
 	public void setAmount(double amount) {
 		this.amount = amount;
+	}
+	@Override
+	public String toString() {
+		return "Product [productId=" + productId + ", productName=" + productName + ", category=" + category
+				+ ", quantity=" + quantity + ", amount=" + amount + "]";
 	}
 	
 	

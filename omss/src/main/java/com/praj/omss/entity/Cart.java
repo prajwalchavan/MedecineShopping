@@ -22,6 +22,17 @@ public class Cart {
 	public int getCartId() {
 		return cartId;
 	}
+	public Cart(int cartId, String userid, String product) {
+		super();
+		this.cartId = cartId;
+		this.userid = userid;
+		this.product = product;
+	}
+	public Cart() {
+		super();
+		
+	}
+	
 	public void setCartId(int cartId) {
 		this.cartId = cartId;
 	}
@@ -44,7 +55,10 @@ public class Cart {
 		this.product = product;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return "Cart [cartId=" + cartId + ", userid=" + userid + ", product=" + product + "]";
+	}
 	
 
 }

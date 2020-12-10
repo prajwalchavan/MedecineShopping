@@ -11,6 +11,7 @@ import javax.persistence.Table;
 @Table(name="Product_info")
 
 public class Payment {
+	
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="paymend_id")
@@ -27,6 +28,21 @@ public class Payment {
 	private double taxAmount;
 	public int getPaymentId() {
 		return paymentId;
+		
+	}
+	public Payment(int paymentId, String billId, String dateOfPayment, int cardNo, double totalAmount,
+			double taxAmount) {
+		super();
+		this.paymentId = paymentId;
+		BillId = billId;
+		DateOfPayment = dateOfPayment;
+		this.cardNo = cardNo;
+		this.totalAmount = totalAmount;
+		this.taxAmount = taxAmount;
+	}
+	public Payment() {
+		super();
+		
 	}
 	public void setPaymentId(int paymentId) {
 		this.paymentId = paymentId;
@@ -60,6 +76,11 @@ public class Payment {
 	}
 	public void setTaxAmount(double taxAmount) {
 		this.taxAmount = taxAmount;
+	}
+	@Override
+	public String toString() {
+		return "Payment [paymentId=" + paymentId + ", BillId=" + BillId + ", DateOfPayment=" + DateOfPayment
+				+ ", cardNo=" + cardNo + ", totalAmount=" + totalAmount + ", taxAmount=" + taxAmount + "]";
 	}
 
 }
