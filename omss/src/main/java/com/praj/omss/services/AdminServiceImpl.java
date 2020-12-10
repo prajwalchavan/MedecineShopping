@@ -44,10 +44,10 @@ public class AdminServiceImpl implements AdminService {
 		return dao.ViewUserDetails(Userid);
 	}
 	@Override
-	public List<Order> ViewAllOrders(int orderId) {
+	public List<Order> ViewAllOrders() {
 		
 		logger.info("Viewing all orders");
-		return dao.ViewAllOrders(orderId);
+		return dao.ViewAllOrders();
 	}
 	@Override
 	public Admin logout(Admin admin) {

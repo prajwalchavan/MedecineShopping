@@ -11,7 +11,7 @@ public interface AdminDAO {
 		public Product updateProduct(Product product);
 		public List<Product> ViewProduct(int productId);
 		public List<User> ViewUserDetails(int Userid);
-		public List<Order> ViewAllOrders(int orderId);
+		public List<Order> ViewAllOrders();
 		
 		public Admin logout(Admin admin);
 		

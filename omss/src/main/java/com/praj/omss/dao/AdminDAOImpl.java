@@ -60,9 +60,8 @@ public class AdminDAOImpl implements AdminDAO {
 		return list;
 	}
 	@Override
-	public List<Order> ViewAllOrders(int orderId) {
-		TypedQuery<Order> query=manager.createQuery("select cc.orderId from Order cc where cc.order_Id=:orderId",Order.class);
-		query.setParameter("OrderId", orderId);
+	public List<Order> ViewAllOrders() {
+		TypedQuery<Order> query=manager.createQuery("select cc from Order cc",Order.class);
 		List<Order> list=query.getResultList();
 		return list;
 	}

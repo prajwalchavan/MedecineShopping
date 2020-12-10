@@ -7,7 +7,7 @@ import com.praj.omss.entity.Order;
 
 public interface OrderService {
 	
-	public List<Order>  viewOrders(int orderId);
+	public List<Order>  viewOrders(int userId);
 	public List<Order> viewOrders(LocalDate orderdDate);
 	
 	public Order placeOrder(Order order);
