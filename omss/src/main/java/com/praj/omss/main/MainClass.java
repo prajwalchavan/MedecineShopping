@@ -5,7 +5,6 @@ import com.praj.omss.services.*;
 import java.util.Scanner;
 
 import com.praj.omss.entity.Product;
-import com.praj.omss.entity.User;
 
 public class MainClass {
 	public static void main(String[] args) {
