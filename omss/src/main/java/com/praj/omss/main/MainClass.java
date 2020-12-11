@@ -71,7 +71,9 @@ public class MainClass {
 						case 4:
 							System.out.println("All Orders:" + OrderService.ViewAllOrder() + "\n");
 							break;
-						case 5:
+						case 5: 
+							System.out.println(0);;
+							System.exit(0);
 							break;
 
 						}
@@ -109,8 +111,7 @@ public class MainClass {
 				System.out.println("Create the new password");
 				scanner.nextLine();
 				String password = scanner.nextLine();
-				User user = new User(userId, firstName, lastName, address, mobileNo, Email, password, "User");
-				ucn.register(user);
+				ucn.register(userId, firstName, lastName, address, mobileNo, Email, password); 
 				break;
 			case 2:
 				System.out.println("--------User Login Page---------");

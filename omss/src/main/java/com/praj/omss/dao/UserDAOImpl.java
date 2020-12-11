@@ -1,24 +1,34 @@
 package com.praj.omss.dao;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import com.praj.omss.entity.User;
-import com.praj.omss.util.DBUtil;
 
 public class UserDAOImpl implements UserDAO {
-	
-	EntityManager manager;
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("omss");
+	EntityManager manager = factory.createEntityManager();
+	//EntityManager manager;
 	public  UserDAOImpl() {
-		// TODO Auto-generated constructor stub
-		manager= DBUtil.getConnection();
+		//manager= DBUtil.getConnection();
 	}
 
 	@Override
-	public boolean register(User user) {
+	public boolean register(int userId, String firstName, String lastName, String address, Long mobileNo,String Email, String password) {
+		User u = new User();
+		u.setAddress(address);
+		u.setEmailId(Email);
+		u.setFirstName(firstName);
+		u.setLastName(lastName);
+		u.setUserid(userId);
+		u.setPassword(password);
+		u.setMobileNo(mobileNo);
+		
 		manager.getTransaction().begin();
-		manager.persist(user);
-		manager.getTransaction().commit();
+		manager.persist(u);
+		manager.getTransaction().commit(); //ab try kar2
 		return true;
 	}
 
@@ -27,14 +37,16 @@ public class UserDAOImpl implements UserDAO {
 		
 		try{
 			manager.getTransaction().begin();
-			manager.persist(id);
+			manager.persist(id); //
+			
+			
 
         TypedQuery<User> query = manager.createQuery("SELECT u FROM users u "
-        		+ "WHERE u.user_id = :login AND u.password = :pass", User.class);        
+        		+ "WHERE u.userid = :login AND u.password = :password", User.class);        //idahr table ka column name nahi class ka property name ayega
         query.setParameter(1, id);
         query.setParameter(2, password); 
         try{ 
-        	//User u=
+        	//User u= 
            query.getSingleResult();
             return true;
         }catch(javax.persistence.NoResultException e)
@@ -43,7 +55,7 @@ public class UserDAOImpl implements UserDAO {
         }
 		}
 		finally {
-			manager.close();
+			//manager.close();
 		} 
 
 	}

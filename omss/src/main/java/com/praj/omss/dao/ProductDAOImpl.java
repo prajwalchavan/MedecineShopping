@@ -17,7 +17,6 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 	@Override
 	public Product addProduct(Product product) {
-		// TODO Auto-generated method stub
 		manager.getTransaction().begin();
 		manager.persist(product);
 		manager.getTransaction().commit();
@@ -26,8 +25,6 @@ public class ProductDAOImpl implements ProductDAO {
 	}
 	@Override
 	public Product updateProduct(Product product) {
-		// TODO Auto-generated method stub
-
 		manager.merge(product);
 		return product;
 	}

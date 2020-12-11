@@ -10,22 +10,21 @@ public class UserServiceImpl implements UserService {
 	{
 		dao= new UserDAOImpl();
 	}
+	
 	@Override
-	public boolean register(User user) {
+	public boolean register(int userId, String firstName, String lastName, String address, Long mobileNo,String Email, String password) {
 		
-		return dao.register(user);
+		return dao.register(userId, firstName, lastName, address, mobileNo, Email, password);
 	}
 
 	@Override
 	public boolean login(int id, String password) {
-		// TODO Auto-generated method stub
 		return dao.login(id, password);
 	}
 
 
 	@Override
 	public User logout(User user) {
-		// TODO Auto-generated method stub
 		return dao.logout(user);
 	}
 

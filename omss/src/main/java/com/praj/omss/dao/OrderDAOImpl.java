@@ -1,6 +1,5 @@
 package com.praj.omss.dao;
 
-import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -16,27 +15,26 @@ public class OrderDAOImpl implements OrderDAO {
 		manager=DBUtil.getConnection();
 	}
 	@Override
-	public List<Order> viewOrders(int orderId) {
+	public List<Order> ViewAllOrder(Order order) {
 		TypedQuery<Order> query=manager.createQuery("select cc from Order ",Order.class);
+		query.setParameter("order", order);
+		List<Order> list=query.getResultList();
+		return list;
+	}
+	
+	@Override
+	public List<Order> ViewleSingleOrders(int orderId) {
+		TypedQuery<Order> query=manager.createQuery("select cc from Order where cc.order_Id=orderId",Order.class);
 		query.setParameter("orderId", orderId);
 		List<Order> list=query.getResultList();
 		return list;
 	}
 	@Override
-	public List<Order> viewOrders(LocalDate orderDate) {
-		TypedQuery<Order> query=manager.createQuery("select cc from Order where cc.orderDate=orderDate",Order.class);
-		query.setParameter("orderDate", orderDate);
-		List<Order> list=query.getResultList();
-		return list;
-	}
-	@Override
-	public Order placeOrder(Order order) {
+	public Order PlaceOrder(Order order) {
 		manager.getTransaction().begin();
 		manager.persist(order);
 		manager.getTransaction().commit();
 		return order;
 	}
 	
-
-
 }

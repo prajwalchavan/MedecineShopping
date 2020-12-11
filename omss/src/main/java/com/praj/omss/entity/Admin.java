@@ -14,6 +14,10 @@ public class Admin {
 	//@GeneratedValue(strategy =GenerationType.AUTO)
 	@Column(name="admin_id")
 	private int AdminId;
+	@Column(name="password")
+	private String password;
+	@Column(name="Name")
+	private char AdminName;
 	
 	public Admin(int adminId, String password, char adminName) {
 		super();
@@ -24,10 +28,7 @@ public class Admin {
 	public Admin() {
 		super();
 	}
-	@Column(name="password")
-	private String password;
-	@Column(name="Name")
-	private char AdminName;
+	
 	public int getAdminId() {
 		return AdminId;
 	}
