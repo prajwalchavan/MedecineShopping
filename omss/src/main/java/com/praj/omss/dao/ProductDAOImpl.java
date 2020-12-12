@@ -3,45 +3,59 @@ package com.praj.omss.dao;
 import java.util.List;
 
 import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import com.praj.omss.entity.Product;
-import com.praj.omss.util.DBUtil;
 
 public class ProductDAOImpl implements ProductDAO {
+	EntityManagerFactory factory = Persistence.createEntityManagerFactory("omss");
+	EntityManager manager = factory.createEntityManager();
 
-	EntityManager manager;
-	public ProductDAOImpl()
-	{
-		manager=DBUtil.getConnection();
+	// EntityManager manager;
+	public ProductDAOImpl() {
+		// manager=DBUtil.getConnection();
 	}
+
 	@Override
-	public Product addProduct(Product product) {
+	public boolean addProduct(int productId, String productName, String category, int quantity, long amount) {
+		Product p = new Product();
+		p.setProductId(productId);
+		p.setProductName(productName);
+		p.setCategory(category);
+		p.setQuantity(quantity);
+		p.setAmount(amount);
+
 		manager.getTransaction().begin();
-		manager.persist(product);
+		manager.persist(p);
 		manager.getTransaction().commit();
-		return product;
-		
+		return true;
+
 	}
+
 	@Override
 	public Product updateProduct(Product product) {
 		manager.merge(product);
 		return product;
 	}
+
 	@Override
-	public Product viewProduct(int productId) {
-		// TODO Auto-generated method stub
-		TypedQuery<Product> query=manager.createQuery("select cc from Products cc where cc.product_Id=:productId",Product.class);
-		query.setParameter("productId", productId);
-		Product product=query.getSingleResult();
+	public Product getSingleProduct(String category) {
+		TypedQuery<Product> query = manager.createQuery("select cc from Product cc where cc.category=:category",
+				Product.class);
+		query.setParameter("category", category);
+		Product product = query.getSingleResult();
 		return product;
 	}
+
 	@Override
 	public List<Product> getProductList() {
-		// TODO Auto-generated method stub
-		TypedQuery<Product> query=manager.createQuery("select cc from Products cc ",Product.class);
-		List<Product> list=query.getResultList();
+		TypedQuery<Product> query = manager.createQuery("select cc from Product cc ", Product.class);
+		List<Product> list = query.getResultList();
 		return list;
 	}
+
+	
 	
 }

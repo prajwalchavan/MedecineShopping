@@ -12,22 +12,25 @@ public class ProductServiceImpl implements ProductService {
 	public ProductServiceImpl() {
 		dao=new ProductDAOImpl();
 	}
+	
 	@Override
-	public Product addProduct(Product product) {
-		return dao.addProduct(product);
+	public boolean addProduct(int productId, String productName, String category, int quantity, long amount) {
+		return dao.addProduct(productId, productName, category, quantity, amount);
 	}
 	@Override
 	public Product updateProduct(Product product) {
 		return dao.updateProduct(product);
 	}
-	@Override
-	public Product viewProduct(int productId) {
-		return dao.viewProduct(productId);
-	}
+	
 	@Override
 	public List<Product> getProductList() {
 		return dao.getProductList();
 	}
-	
 
+	@Override
+	public Product viewSingleProduct(String category) {
+		return dao.getSingleProduct(category);
+	}
+
+	
 }

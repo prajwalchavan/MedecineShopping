@@ -15,9 +15,8 @@ public class OrderDAOImpl implements OrderDAO {
 		manager=DBUtil.getConnection();
 	}
 	@Override
-	public List<Order> ViewAllOrder(Order order) {
+	public List<Order> ViewOrders() {
 		TypedQuery<Order> query=manager.createQuery("select cc from Order ",Order.class);
-		query.setParameter("order", order);
 		List<Order> list=query.getResultList();
 		return list;
 	}

@@ -6,10 +6,10 @@ import com.praj.omss.entity.Product;
 
 public interface ProductDAO {
 
-	public Product addProduct(Product product);
 	public Product updateProduct(Product product);
-	public Product viewProduct(int productId);
 	public List<Product> getProductList();
+	public  boolean addProduct(int productId, String productName, String category, int quantity, long amount);
+	public Product getSingleProduct(String category);
 	
 
 }

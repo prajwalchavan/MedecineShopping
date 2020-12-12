@@ -1,5 +1,7 @@
 package com.praj.omss.services;
 
+import java.util.List;
+
 import com.praj.omss.dao.UserDAO;
 import com.praj.omss.dao.UserDAOImpl;
 import com.praj.omss.entity.User;
@@ -18,8 +20,8 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public boolean login(int id, String password) {
-		return dao.login(id, password);
+	public boolean login(int UserId, String loginPassword) {
+		return dao.login(UserId, loginPassword);
 	}
 
 
@@ -27,5 +29,15 @@ public class UserServiceImpl implements UserService {
 	public User logout(User user) {
 		return dao.logout(user);
 	}
+
+	public List<User> ViewAllUsers() {
+		return dao.getUserList();
+	}
+
+	public String getusername(int userId) {
+		return dao.getName(userId);
+	}
+
+	
 
 }

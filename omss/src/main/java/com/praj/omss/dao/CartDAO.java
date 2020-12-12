@@ -5,6 +5,8 @@ import com.praj.omss.entity.Product;
 import com.praj.omss.entity.User;
 
 public interface CartDAO {
-	public Cart addProductToCart(User user,Product product,int quantity);
+	public Cart addProductToCart(String name,int productId,int quantity);
+
+	Cart fetchDet(int productId);
 
 }

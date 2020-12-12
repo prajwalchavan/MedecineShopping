@@ -13,11 +13,6 @@ public class OrderServiceImpl implements OrderService{
 		dao= new OrderDAOImpl();
 	}
 
-	
-	@Override
-	public List<Order> ViewAllOrder(Order order) {
-		return dao.ViewAllOrder(order);
-	}
 	@Override
 	public List<Order> ViewSingleOrder(int orderId) {
 		return dao.ViewleSingleOrders(orderId);
@@ -26,5 +21,11 @@ public class OrderServiceImpl implements OrderService{
 	public Order PlaceOrder(Order order) {
 		return dao.PlaceOrder(order);
 	}
+
+
+	public List<Order> ViewAllOrder() {
+		return dao.ViewOrders();
+	}
+
 	
 }

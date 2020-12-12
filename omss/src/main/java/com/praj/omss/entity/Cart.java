@@ -18,6 +18,7 @@ public class Cart {
 	@Column(name="userid")
 	private String userid;
     @Column(name="cart_info")
+    
 	private String product;
 	public int getCartId() {
 		return cartId;
