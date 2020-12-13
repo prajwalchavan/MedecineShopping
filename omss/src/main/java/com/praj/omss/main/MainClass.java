@@ -1,7 +1,9 @@
 package com.praj.omss.main;
 
+import com.praj.omss.entity.Product;
 import com.praj.omss.services.*;
 
+import java.util.Map;
 import java.util.Scanner;
 
 public class MainClass {
@@ -157,10 +159,13 @@ public class MainClass {
 								int productId = scanner.nextInt();
 								System.out.println("Enter the quantity of product");
 								int Qty = scanner.nextInt();
-								System.out.println(csI.addProductToCart(name, productId, Qty));
+								csI.addProductToCart(productId, Qty);
 								break;
 							case 3:
-								System.out.println("Payment using card:");
+								//System.out.println("Payment using card:");
+								for(Map.Entry<Product, Integer> c : csI.viewCart().entrySet()) {
+									System.out.println(c.getKey() + "-" + c.getValue());
+								}
 								break;
 							case 4:
 								System.out.println(
