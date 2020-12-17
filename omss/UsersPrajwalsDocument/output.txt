@@ -1,0 +1,5 @@
+2020-12-17 15:28:39 INFO  UserDAOImpl:45 - User logged in
+2020-12-17 15:28:39 INFO  UserDAOImpl:83 - User Fetching
+2020-12-17 15:28:39 INFO  UserDAOImpl:48 - User Logged in
+2020-12-17 15:28:39 INFO  UserDAOImpl:83 - User Fetching
+2020-12-17 15:28:39 INFO  UserDAOImpl:61 - Got name
