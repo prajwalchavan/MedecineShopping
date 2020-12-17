@@ -32,5 +32,11 @@ public class ProductServiceImpl implements ProductService {
 		return dao.getSingleProduct(category);
 	}
 
+	@Override
+	public String ViewBasedOnCategory(String category) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 }

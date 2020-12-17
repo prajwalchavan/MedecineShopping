@@ -14,9 +14,7 @@ public interface ProductService {
 
 	public List<Product> getProductList();
 
-	public static String ViewBasedOnCategory(String category) {
-		return null;
-	}
+	public String ViewBasedOnCategory(String category);
 
 	
 

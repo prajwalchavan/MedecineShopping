@@ -42,7 +42,7 @@ public class UserDAOImpl implements UserDAO {
 
 	@Override
 	public boolean login(int UserId, String loginPassword) {
-
+		logger.info("User logged in");
 		User d = this.fetchDet(UserId);
 		if (d.getPassword().equals(loginPassword)) {
 			logger.info("User Logged in");

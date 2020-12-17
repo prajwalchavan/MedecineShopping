@@ -1,5 +1,7 @@
 package com.praj.omss.services;
 
+import java.util.List;
+
 import com.praj.omss.entity.User;
 
 public interface UserService {
@@ -8,8 +10,6 @@ public interface UserService {
 
 	
 	public User logout(User user);
-	public static String ViewAllUsers() {
-		return null;
-	}
+	public List<User> ViewAllUsers();
 
 }
